@@ -1,0 +1,27 @@
+def loop_detector():
+    while True:
+        try:
+            n = int(input("Enter the amount of coordinates: "))
+            break  
+        except ValueError:
+            print("Invalid input, try again.") 
+
+    visited = set()
+
+    for _ in range(n):
+        while True:
+            try:
+                x, y = map(int, input("Enter the coordinates / Ex: x y: ").split())
+                break  
+            except ValueError:
+                print("Invalid input for coordinates, try again.")  
+        
+        if (x, y) in visited:
+            print("Loop detected")
+            return
+        
+        visited.add((x, y))
+    
+    print("No loop detected")
+
+loop_detector()
